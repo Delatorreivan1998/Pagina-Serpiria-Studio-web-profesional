@@ -353,6 +353,10 @@
                         Proyectos
                         <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
+                    <a href="#precios" class="menu-link group relative font-display text-5xl md:text-8xl text-white uppercase tracking-tight hover:text-blue-500 transition-colors">
+                        Precios
+                        <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
                     <a href="#servicios" class="menu-link group relative font-display text-5xl md:text-8xl text-white uppercase tracking-tight hover:text-blue-500 transition-colors">
                         Servicios
                         <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
@@ -579,7 +583,85 @@
     </section>
 
 
-    <!-- SECTION 5: TESTIMONIOS — slider funcional (MEJORA 2) + scroll reveal (MEJORA 3) -->
+    <!-- SECTION 5: PRECIOS CON CONVERSOR (NEW) -->
+    <section id="precios" class="py-24 px-6 bg-white dark:bg-[#0b0b0a] transition-colors duration-500">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-5xl md:text-7xl text-[#0b0b0a] dark:text-white uppercase mb-6 italic">Planes de Conversión</h2>
+                <p class="text-neutral-500 dark:text-neutral-400 font-medium max-w-xl mx-auto mb-10">Invertí en un activo que trabaje para vos las 24hs. Transparencia total, sin costos ocultos.</p>
+
+                <!-- Currency Switcher -->
+                <div class="flex items-center justify-center gap-4">
+                    <div class="relative bg-neutral-100 dark:bg-neutral-800 p-1.5 rounded-full flex items-center w-56 h-14 overflow-hidden shadow-inner">
+                        <div id="currencySelectorPill" class="absolute left-1.5 w-[104px] h-[40px] bg-[#0057FF] rounded-full transition-all duration-500 ease-in-out shadow-lg"></div>
+                        <button id="setUSD" class="relative z-10 w-1/2 text-sm font-bold transition-colors duration-300 text-white">USD</button>
+                        <button id="setLocal" class="relative z-10 w-1/2 text-sm font-bold transition-colors duration-300 text-neutral-500 dark:text-neutral-400">Local</button>
+                    </div>
+                </div>
+                <p id="exchangeNote" class="mt-4 text-[10px] uppercase tracking-widest text-[#0057FF] font-bold opacity-0 transition-opacity duration-300">Precio referencial · Tipo de cambio del día</p>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Plan 1 -->
+                <div class="reveal bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 p-10 rounded-2xl flex flex-col items-start transition-all duration-500 hover:shadow-2xl">
+                    <span class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6">Landing Page</span>
+                    <h3 class="font-display text-4xl text-[#0b0b0a] dark:text-white uppercase mb-4">Esencial</h3>
+                    <div class="mb-8">
+                        <span class="price-value font-display text-5xl md:text-6xl text-[#0057FF]" data-usd="499">$ 499</span>
+                        <span class="currency-code text-xs font-bold text-neutral-400 dark:text-neutral-600 block mt-1">USD</span>
+                    </div>
+                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-600 dark:text-neutral-400 mb-10 flex-grow">
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Diseño de Alto Impacto</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Optimización para Móviles</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Botón de WhatsApp Directo</li>
+                        <li class="flex items-center gap-3 text-neutral-300"><iconify-icon icon="solar:close-circle-bold" width="18"></iconify-icon> Embudo de Ventas</li>
+                    </ul>
+                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20el%20Plan%20Esencial" target="_blank" class="w-full py-4 rounded-full border border-[#0b0b0a] dark:border-white text-center font-bold text-sm uppercase tracking-widest hover:bg-[#0b0b0a] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">Seleccionar</a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="reveal-stagger bg-[#0b0b0a] p-10 rounded-2xl flex flex-col items-start transition-all duration-500 relative overflow-hidden ring-4 ring-[#0057FF]/30 shadow-2xl">
+                    <div class="absolute top-0 right-0 bg-[#0057FF] text-white px-6 py-2 rounded-bl-xl font-bold text-[10px] uppercase tracking-widest">Recomendado</div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#0057FF] mb-6">Expertise Pack</span>
+                    <h3 class="font-display text-4xl text-white uppercase mb-4">Sistema Pro</h3>
+                    <div class="mb-8">
+                        <span class="price-value font-display text-5xl md:text-6xl text-white" data-usd="1199">$ 1.199</span>
+                        <span class="currency-code text-xs font-bold text-neutral-600 block mt-1">USD</span>
+                    </div>
+                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-300 mb-10 flex-grow">
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Todo el Plan Esencial</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Copywriting de Ventas</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Automatización de Leads</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Sistema de Conversión ( funnel )</li>
+                    </ul>
+                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20el%20Plan%20Sistema%20Pro" target="_blank" class="w-full py-4 rounded-full bg-[#0057FF] text-white text-center font-bold text-sm uppercase tracking-widest hover:bg-blue-600 transition-all">Empecemos Ahora</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="reveal bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 p-10 rounded-2xl flex flex-col items-start transition-all duration-500 hover:shadow-2xl">
+                    <span class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6">Tailored Solution</span>
+                    <h3 class="font-display text-4xl text-[#0b0b0a] dark:text-white uppercase mb-4">Enterprise</h3>
+                    <div class="mb-8">
+                        <span class="price-value font-display text-5xl md:text-6xl text-[#0b0b0a] dark:text-white" data-usd="2499">$ 2.499</span>
+                        <span class="currency-code text-xs font-bold text-neutral-400 dark:text-neutral-600 block mt-1">USD</span>
+                    </div>
+                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-600 dark:text-neutral-400 mb-10 flex-grow">
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Integración con CRMs</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Pasarelas de Pago</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Reportes Personalizados</li>
+                        <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-bold" class="text-green-500" width="18"></iconify-icon> Soporte VIP 1 a 1</li>
+                    </ul>
+                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20me%20interesa%20el%20Plan%20Enterprise" target="_blank" class="w-full py-4 rounded-full border border-[#0b0b0a] dark:border-white text-center font-bold text-sm uppercase tracking-widest hover:bg-[#0b0b0a] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">Hablar con Experto</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: TESTIMONIOS — slider funcional (MEJORA 2) + scroll reveal (MEJORA 3) -->
     <section id="testimonios" class="py-24 bg-[#f0ede6] dark:bg-[#0b0b0a]/90 transition-colors duration-500 overflow-hidden">
         <div class="max-w-[1600px] mx-auto px-6 reveal">
 
@@ -820,6 +902,7 @@
             <div class="flex flex-col items-center gap-5">
                 <div class="flex items-center gap-8 font-medium text-white/80 text-sm">
                     <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+                    <a href="#precios" class="hover:text-white transition-colors">Precios</a>
                     <a href="#testimonios" class="hover:text-white transition-colors">Testimonios</a>
                 </div>
                 <!-- Social Icons -->
@@ -961,6 +1044,73 @@
                 localStorage.theme = isDark ? 'dark' : 'light';
                 updateDarkIcon(isDark);
             });
+
+            /* ─── MEJORA: CONVERSOR DE MONEDA ─── */
+            let userCurrency = 'USD';
+            let exchangeRate = 1;
+            let currentMode = 'USD'; // 'USD' or 'LOCAL'
+
+            const setUSD = document.getElementById('setUSD');
+            const setLocal = document.getElementById('setLocal');
+            const currencyPill = document.getElementById('currencySelectorPill');
+            const priceValues = document.querySelectorAll('.price-value');
+            const currencyCodes = document.querySelectorAll('.currency-code');
+            const exchangeNote = document.getElementById('exchangeNote');
+
+            async function initCurrency() {
+                try {
+                    // 1. Get User Location/Currency
+                    const ipResponse = await fetch('https://ipapi.co/json/');
+                    const ipData = await ipResponse.json();
+                    userCurrency = ipData.currency || 'USD';
+                    setLocal.textContent = userCurrency;
+
+                    // 2. Get Exchange Rate
+                    const rateResponse = await fetch(`https://api.exchangerate-api.com/v4/latest/USD`);
+                    const rateData = await rateResponse.json();
+                    exchangeRate = rateData.rates[userCurrency] || 1;
+                } catch (err) {
+                    console.error("Currency conversion failed", err);
+                }
+            }
+
+            function updatePrices(mode) {
+                currentMode = mode;
+                const isLocal = mode === 'LOCAL';
+                
+                // UI Feedback
+                currencyPill.style.left = isLocal ? 'calc(50% + 1px)' : '1.5px';
+                setUSD.classList.toggle('text-white', !isLocal);
+                setUSD.classList.toggle('text-neutral-500', isLocal);
+                setLocal.classList.toggle('text-white', isLocal);
+                setLocal.classList.toggle('text-neutral-500', !isLocal);
+                exchangeNote.style.opacity = isLocal ? '1' : '0';
+
+                priceValues.forEach(el => {
+                    const usdPrice = parseFloat(el.dataset.usd);
+                    if (isLocal) {
+                        const localPrice = (usdPrice * exchangeRate);
+                        // Format currency
+                        const formatter = new Intl.NumberFormat(undefined, {
+                            style: 'currency',
+                            currency: userCurrency,
+                            minimumFractionDigits: 0
+                        });
+                        el.textContent = formatter.format(localPrice).replace(userCurrency, '').trim();
+                    } else {
+                        el.textContent = `$ ${usdPrice.toLocaleString()}`;
+                    }
+                });
+
+                currencyCodes.forEach(el => {
+                    el.textContent = isLocal ? userCurrency : 'USD';
+                });
+            }
+
+            setUSD.addEventListener('click', () => updatePrices('USD'));
+            setLocal.addEventListener('click', () => updatePrices('LOCAL'));
+
+            initCurrency();
 
             /* ─── MEJORA 3: SCROLL REVEAL ─── */
             const revealObserver = new IntersectionObserver((entries) => {
