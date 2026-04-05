@@ -1183,8 +1183,9 @@
         <!-- Massive Text -->
         <div class="w-full flex justify-center mb-16 md:mb-24">
             <h2
-                class="font-display text-white text-[15vw] md:text-[18vw] leading-none uppercase tracking-normal m-0 p-0 text-center select-none w-full">
-                SERPIRA
+                class="footer-big-text font-display text-white text-[15vw] md:text-[18vw] leading-none uppercase tracking-normal m-0 p-0 text-center select-none w-full flex flex-col">
+                <span>SERPIRA</span>
+                <span>WEB STUDIO</span>
             </h2>
         </div>
 
@@ -1363,6 +1364,26 @@
             document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
                 revealObserver.observe(el);
             });
+
+            /* ─── MEJORA 4: FOOTER BIG TEXT REVEAL ─── */
+            const footerText = document.querySelector('.footer-big-text');
+            if (footerText) {
+                footerText.style.opacity = '0';
+                footerText.style.transform = 'translateY(60px)';
+                footerText.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+                
+                const footerObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            footerText.style.opacity = '1';
+                            footerText.style.transform = 'translateY(0)';
+                            footerObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                footerObserver.observe(footerText);
+            }
 
         });
     </script>
