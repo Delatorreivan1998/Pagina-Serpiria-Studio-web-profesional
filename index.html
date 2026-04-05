@@ -617,17 +617,17 @@
         <!-- Toggle -->
         <div style="display:flex; justify-content:center; margin-bottom:48px;">
           <div style="background:#f5f5f5; border-radius:999px; padding:4px; display:flex; gap:4px;">
-            <button id="btn-usd" onclick="setCurrency('USD')"
+            <button id="btn-local" onclick="setCurrency('local')"
               style="padding:10px 28px; border-radius:999px; border:none; 
               background:#0057FF; color:white; font-weight:700; 
               font-family:'Inter',sans-serif; cursor:pointer; transition:all 0.3s;">
-              USD
+              Moneda local
             </button>
-            <button id="btn-local" onclick="setCurrency('local')"
+            <button id="btn-usd" onclick="setCurrency('USD')"
               style="padding:10px 28px; border-radius:999px; border:none; 
               background:transparent; color:#888; font-weight:700; 
               font-family:'Inter',sans-serif; cursor:pointer; transition:all 0.3s;">
-              Moneda local
+              USD
             </button>
           </div>
         </div>
@@ -675,7 +675,7 @@
                 <span style="color:#555;">✓</span> 1 revisión incluida
               </li>
             </ul>
-            <a href="#" style="display:block; text-align:center; padding:14px; 
+            <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20consultar%20por%20el%20Plan%20Starter" target="_blank" style="display:block; text-align:center; padding:14px; 
             border:1px solid white; border-radius:999px; color:white; 
             font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
             transition:all 0.3s;"
@@ -735,7 +735,7 @@
                 <span style="color:#0057FF;">✓</span> 3 revisiones incluidas
               </li>
             </ul>
-            <a href="#" style="display:block; text-align:center; padding:14px; 
+            <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20estoy%20interesado%20en%20el%20Plan%20Business" target="_blank" style="display:block; text-align:center; padding:14px; 
             background:#0057FF; border-radius:999px; color:white; 
             font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
             transition:all 0.3s;"
@@ -792,7 +792,7 @@
                 <span style="color:#0057FF;">✓</span> Soporte 1 mes post-entrega
               </li>
             </ul>
-            <a href="#" style="display:block; text-align:center; padding:14px; 
+            <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20consultar%20por%20el%20Plan%20Premium" target="_blank" style="display:block; text-align:center; padding:14px; 
             border:1px solid white; border-radius:999px; color:white; 
             font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
             transition:all 0.3s;"
@@ -824,7 +824,7 @@
           'US': { code: 'USD', rate: 1 }
         };
 
-        var userCurrencyData = currencyMap['US'];
+        var userCurrencyData = currencyMap['AR'];
 
         window.setCurrency = function(mode) {
           var isLocal = mode === 'local';
@@ -876,21 +876,26 @@
           });
         };
 
+        // Initialize local by default using primary fallback (AR) instantly
+        window.setCurrency('local');
+
         // Fallback detect by timezone for robustness (adblockers)
         function getTzCountry() {
           var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-          if (tz.indexOf('Argentina') !== -1) return 'AR';
           if (tz.indexOf('Mexico') !== -1 || tz.indexOf('Cancun') !== -1) return 'MX';
           if (tz.indexOf('Santiago') !== -1) return 'CL';
           if (tz.indexOf('Bogota') !== -1) return 'CO';
           if (tz.indexOf('Madrid') !== -1 || tz.indexOf('Europe') !== -1) return 'ES';
-          return 'US';
+          if (tz.indexOf('America/New_York') !== -1 || tz.indexOf('Los_Angeles') !== -1) return 'US';
+          return 'AR';
         }
 
         function applyCountry(country) {
           if (currencyMap[country]) {
             userCurrencyData = currencyMap[country];
-            if (country !== 'US') {
+            if (country === 'US') {
+              window.setCurrency('USD');
+            } else {
               window.setCurrency('local');
             }
           }
