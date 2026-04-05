@@ -282,6 +282,24 @@
             transform: scale(1.3);
         }
 
+        @keyframes pulseSlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+        }
+        .animate-pulse-slow {
+            animation: pulseSlow 8s ease-in-out infinite;
+        }
+
+        @keyframes floatGrid {
+            0% { transform: translateY(0) scale(1.05); }
+            50% { transform: translateY(-5%) scale(1.1); }
+            100% { transform: translateY(0) scale(1.05); }
+        }
+        .animate-float-grid {
+            animation: floatGrid 30s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .marquee-container {
                 animation: none;
@@ -310,9 +328,14 @@
     <!-- SECTION 1: HERO FULL SCREEN -->
     <section class="relative min-h-screen flex flex-col justify-center bg-[#0b0b0a] overflow-hidden">
 
-        <!-- Background Grid Mosaic -->
-        <div class="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
-            <div class="grid grid-cols-3 md:grid-cols-4 grid-rows-3 h-full w-full gap-1 opacity-60">
+        <!-- Background Glow Orb (2026 Trend) -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0057FF] rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
+        </div>
+
+        <!-- Background Grid Mosaic (Animated) -->
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-luminosity animate-float-grid pointer-events-none">
+            <div class="grid grid-cols-3 md:grid-cols-4 grid-rows-3 h-[120%] w-full gap-1 opacity-60">
                 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
                     alt="Web" class="w-full h-full object-cover">
                 <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
@@ -338,9 +361,10 @@
                 <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
                     alt="Web" class="w-full h-full object-cover hidden md:block">
             </div>
-            <!-- Black Overlay -->
-            <div class="absolute inset-0 bg-[#0b0b0a]/80"></div>
+            </div>
         </div>
+        <!-- Black Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0b0b0a]/60 via-[#0b0b0a]/80 to-[#0b0b0a] z-0 pointer-events-none"></div>
 
 
         <!-- Navigation Absolute -->
@@ -440,17 +464,18 @@
 
 
             <!-- Bullets -->
-            <div
-                class="flex flex-col gap-3 text-sm md:text-base text-neutral-400 font-medium max-w-2xl mx-auto mb-12 text-left md:text-center">
-                <p class="flex items-start md:items-center gap-3">
-                    <span class="shrink-0 text-sm">🔴</span>
-                    <span>¿Tenés una web que no convierte, no genera tráfico o no te trae un solo cliente?</span>
+            <div class="flex flex-col items-center gap-4 text-sm md:text-base text-neutral-300 font-medium max-w-3xl mx-auto mb-12 text-center">
+                <p class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-red-500/10 border border-red-500/20 backdrop-blur-sm shadow-[0_0_15px_rgba(239,68,68,0.15)] leading-tight text-left md:text-center">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] shrink-0"></span>
+                    <span>¿Tenés una web que no convierte, no genera tráfico o no te trae clientes?</span>
                 </p>
-                <p class="flex items-start md:items-center gap-3">
-                    <span class="shrink-0 text-sm">🟢</span>
-                    <span>Nosotros la convertimos en tu principal canal de ventas en solo 21 días. Si no genera leads,
-                        trabajamos gratis hasta que lo haga.</span>
-                </p>
+                <div class="inline-flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 px-5 py-3 rounded-[20px] md:rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm shadow-[0_0_15px_rgba(34,197,94,0.15)] leading-tight text-left md:text-center">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)] shrink-0"></span>
+                        <span>La convertimos en tu principal canal de ventas en 21 días.</span>
+                    </div>
+                    <span class="md:border-l md:border-green-500/30 md:pl-3 text-green-400 font-bold">Si no genera leads, trabajamos gratis.</span>
+                </div>
             </div>
 
 
