@@ -324,10 +324,53 @@
         <!-- Navigation Absolute -->
         <nav class="absolute top-0 w-full z-40 p-6 flex justify-between items-center">
             <a href="#" class="font-body font-bold tracking-tight text-xl text-white">Serpira</a>
-            <button class="text-white hover:text-neutral-300 transition-colors">
+            <button id="menuBtn" class="text-white hover:text-neutral-300 transition-colors z-50">
                 <iconify-icon icon="solar:hamburger-menu-linear" width="32" stroke-width="1.5"></iconify-icon>
             </button>
         </nav>
+
+        <!-- Modern Overlay Menu (NEW) -->
+        <div id="sideMenu" class="fixed inset-0 z-[60] invisible pointer-events-none transition-all duration-500">
+            <!-- Backdrop -->
+            <div id="menuBackdrop" class="absolute inset-0 bg-[#0b0b0a]/90 backdrop-blur-md opacity-0 transition-opacity duration-500"></div>
+            
+            <!-- Menu Content -->
+            <div id="menuContent" class="relative h-full w-full flex flex-col items-center justify-center translate-y-10 opacity-0 transition-all duration-500 ease-out">
+                
+                <!-- Close Button -->
+                <button id="closeMenu" class="absolute top-8 right-8 text-white hover:rotate-90 transition-transform duration-300">
+                    <iconify-icon icon="solar:close-circle-linear" width="48"></iconify-icon>
+                </button>
+
+                <!-- Navigation Links -->
+                <nav class="flex flex-col items-center gap-8 md:gap-12 text-center">
+                    <a href="#proyectos" class="menu-link group relative font-display text-5xl md:text-8xl text-white uppercase tracking-tight hover:text-blue-500 transition-colors">
+                        Proyectos
+                        <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#servicios" class="menu-link group relative font-display text-5xl md:text-8xl text-white uppercase tracking-tight hover:text-blue-500 transition-colors">
+                        Servicios
+                        <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#testimonios" class="menu-link group relative font-display text-5xl md:text-8xl text-white uppercase tracking-tight hover:text-blue-500 transition-colors">
+                        Testimonios
+                        <span class="absolute -bottom-2 left-0 w-0 h-1 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="https://wa.me/5491173640915" target="_blank" class="menu-link bg-white text-black px-10 py-5 rounded-full font-bold text-xl md:text-2xl mt-8 hover:bg-neutral-200 transition-colors">
+                        Contacto Directo
+                    </a>
+                </nav>
+
+                <!-- Social info in menu -->
+                <div class="absolute bottom-12 flex flex-col items-center gap-2">
+                    <p class="text-neutral-500 text-sm font-medium uppercase tracking-widest">Seguinos</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-white hover:text-blue-500 transition-colors"><iconify-icon icon="mdi:instagram" width="24"></iconify-icon></a>
+                        <a href="https://wa.me/5491173640915" class="text-white hover:text-green-500 transition-colors"><iconify-icon icon="mdi:whatsapp" width="24"></iconify-icon></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Hero Content -->
@@ -845,6 +888,41 @@
             function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
             startAutoplay();
 
+
+            /* ─── MEJORA: MENU LÓGICA ─── */
+            const menuBtn = document.getElementById('menuBtn');
+            const sideMenu = document.getElementById('sideMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            const menuContent = document.getElementById('menuContent');
+            const menuLinks = document.querySelectorAll('.menu-link');
+
+            function openSideMenu() {
+                sideMenu.classList.remove('invisible');
+                sideMenu.classList.add('pointer-events-auto');
+                document.body.classList.add('overflow-hidden');
+                setTimeout(() => {
+                    menuBackdrop.classList.replace('opacity-0', 'opacity-100');
+                    menuContent.classList.replace('translate-y-10', 'translate-y-0');
+                    menuContent.classList.replace('opacity-0', 'opacity-100');
+                }, 10);
+            }
+
+            function closeSideMenu() {
+                menuBackdrop.classList.replace('opacity-100', 'opacity-0');
+                menuContent.classList.replace('translate-y-0', 'translate-y-10');
+                menuContent.classList.replace('opacity-100', 'opacity-0');
+                setTimeout(() => {
+                    sideMenu.classList.add('invisible');
+                    sideMenu.classList.remove('pointer-events-auto');
+                    document.body.classList.remove('overflow-hidden');
+                }, 500);
+            }
+
+            menuBtn.addEventListener('click', openSideMenu);
+            closeMenu.addEventListener('click', closeSideMenu);
+            menuBackdrop.addEventListener('click', closeSideMenu);
+            menuLinks.forEach(link => link.addEventListener('click', closeSideMenu));
 
             /* ─── MEJORA 3: SCROLL REVEAL ─── */
             const revealObserver = new IntersectionObserver((entries) => {
