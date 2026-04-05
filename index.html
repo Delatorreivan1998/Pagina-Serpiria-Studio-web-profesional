@@ -1242,8 +1242,9 @@
 
             /* ─── MES DINÁMICO EN BADGE ─── */
             const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-            const mesAnterior = new Date().getMonth() === 0 ? 11 : new Date().getMonth() - 1;
-            document.getElementById('cuposMes').textContent = `Cupos completos para ${meses[mesAnterior]}`;
+            const mesActual = new Date().getMonth();
+            const mesAnterior = mesActual === 0 ? 11 : mesActual - 1;
+            document.getElementById('cuposMes').textContent = `${meses[mesAnterior]} cerrado — 5 cupos disponibles para ${meses[mesActual]}`;
 
             /* ─── MEJORA 2: TESTIMONIAL SLIDER ─── */
             const track = document.getElementById('testimonialTrack');
