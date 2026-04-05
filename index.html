@@ -601,15 +601,15 @@
 
 
     <!-- SECTION 5: PRECIOS CON CONVERSOR (NEW DESIGN) -->
-    <section id="precios" style="padding: 80px 24px; background: white;">
+    <section id="precios" class="py-24 px-6 bg-[#f0ede6] dark:bg-[#0b0b0a] transition-colors duration-500">
       <div style="max-width: 1100px; margin: 0 auto;">
         
         <!-- Title -->
-        <h2 style="font-family:'Anton',sans-serif; font-size:clamp(3rem,8vw,6rem); 
-        text-align:center; color:#0b0b0a; margin-bottom:8px; line-height:1;">
+        <h2 class="text-[#0b0b0a] dark:text-white transition-colors duration-500" style="font-family:'Anton',sans-serif; font-size:clamp(3rem,8vw,6rem); 
+        text-align:center; margin-bottom:8px; line-height:1;">
           INVERSIÓN
         </h2>
-        <p style="text-align:center; color:#888; font-family:'Inter',sans-serif; 
+        <p class="text-[#888] dark:text-neutral-400" style="text-align:center; font-family:'Inter',sans-serif; 
         font-size:1.1rem; margin-bottom:40px;">
           Precios claros, resultados reales.
         </p>
@@ -637,8 +637,8 @@
         gap:24px; align-items:start;">
           
           <!-- STARTER -->
-          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
-          display:flex; flex-direction:column; gap:24px;">
+          <div class="shadow-xl" style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          display:flex; flex-direction:column; gap:24px; border:1px solid rgba(255,255,255,0.05);">
             <div>
               <p style="color:#888; font-family:'Inter',sans-serif; font-size:0.85rem; 
               text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Starter</p>
@@ -686,7 +686,7 @@
           </div>
 
           <!-- BUSINESS -->
-          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          <div class="shadow-2xl shadow-blue-500/10" style="background:#0b0b0a; border-radius:16px; padding:36px; 
           display:flex; flex-direction:column; gap:24px; 
           border:2px solid #0057FF; position:relative; margin-top:-16px;">
             <div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%);
@@ -746,8 +746,8 @@
           </div>
 
           <!-- PREMIUM -->
-          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
-          display:flex; flex-direction:column; gap:24px;">
+          <div class="shadow-xl" style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          display:flex; flex-direction:column; gap:24px; border:1px solid rgba(255,255,255,0.05);">
             <div>
               <p style="color:#888; font-family:'Inter',sans-serif; font-size:0.85rem; 
               text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Premium</p>
@@ -876,19 +876,36 @@
           });
         };
 
+        // Fallback detect by timezone for robustness (adblockers)
+        function getTzCountry() {
+          var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+          if (tz.indexOf('Argentina') !== -1) return 'AR';
+          if (tz.indexOf('Mexico') !== -1 || tz.indexOf('Cancun') !== -1) return 'MX';
+          if (tz.indexOf('Santiago') !== -1) return 'CL';
+          if (tz.indexOf('Bogota') !== -1) return 'CO';
+          if (tz.indexOf('Madrid') !== -1 || tz.indexOf('Europe') !== -1) return 'ES';
+          return 'US';
+        }
+
+        function applyCountry(country) {
+          if (currencyMap[country]) {
+            userCurrencyData = currencyMap[country];
+            if (country !== 'US') {
+              window.setCurrency('local');
+            }
+          }
+        }
+
         // Detect Country
         fetch('https://api.country.is/')
           .then(res => res.json())
           .then(data => {
-            var country = data.country || 'US';
-            if (currencyMap[country]) {
-              userCurrencyData = currencyMap[country];
-              if (country !== 'US') {
-                window.setCurrency('local');
-              }
-            }
+            applyCountry(data.country || getTzCountry());
           })
-          .catch(err => console.error("Currency detect error:", err));
+          .catch(err => {
+            console.warn("Currency detect error (api.country.is blocked maybe), using timezone fallback.");
+            applyCountry(getTzCountry());
+          });
       })();
     </script>
     
