@@ -633,12 +633,13 @@
         </div>
 
         <!-- Cards -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
-        gap:24px; align-items:start;">
+        <div id="precios-cards" class="flex flex-row overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 gap-6 pt-6 pb-8 lg:pb-0 items-start hide-scrollbar-custom" style="scrollbar-width: none; -ms-overflow-style: none;">
+          <style>
+            .hide-scrollbar-custom::-webkit-scrollbar { display: none; }
+          </style>
           
           <!-- STARTER -->
-          <div class="shadow-xl bg-white dark:bg-[#0b0b0a] border border-neutral-200 dark:border-white/5 transition-colors duration-500" style="border-radius:16px; padding:36px; 
-          display:flex; flex-direction:column; gap:24px;">
+          <div class="min-w-[85vw] md:min-w-[320px] lg:min-w-0 lg:w-auto shrink-0 snap-center shadow-xl bg-white dark:bg-[#0b0b0a] border border-neutral-200 dark:border-white/5 transition-colors duration-500" style="border-radius:16px; padding:36px; display:flex; flex-direction:column; gap:24px;">
             <div>
               <p class="text-[#888] dark:text-neutral-400" style="font-family:'Inter',sans-serif; font-size:0.85rem; 
               text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Starter</p>
@@ -685,9 +686,7 @@
           </div>
 
           <!-- BUSINESS -->
-          <div class="shadow-2xl shadow-blue-500/10 bg-white dark:bg-[#0b0b0a] transition-colors duration-500" style="border-radius:16px; padding:36px; 
-          display:flex; flex-direction:column; gap:24px; 
-          border:2px solid #0057FF; position:relative; margin-top:-16px;">
+          <div class="min-w-[85vw] md:min-w-[320px] lg:min-w-0 lg:w-auto shrink-0 snap-center shadow-2xl shadow-blue-500/10 bg-white dark:bg-[#0b0b0a] transition-colors duration-500 lg:-mt-4" style="border-radius:16px; padding:36px; display:flex; flex-direction:column; gap:24px; border:2px solid #0057FF; position:relative;">
             <div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%);
             background:#0057FF; color:white; font-family:'Inter',sans-serif; 
             font-weight:700; font-size:0.75rem; padding:6px 20px; 
@@ -744,8 +743,7 @@
           </div>
 
           <!-- PREMIUM -->
-          <div class="shadow-xl bg-white dark:bg-[#0b0b0a] border border-neutral-200 dark:border-white/5 transition-colors duration-500" style="border-radius:16px; padding:36px; 
-          display:flex; flex-direction:column; gap:24px;">
+          <div class="min-w-[85vw] md:min-w-[320px] lg:min-w-0 lg:w-auto shrink-0 snap-center shadow-xl bg-white dark:bg-[#0b0b0a] border border-neutral-200 dark:border-white/5 transition-colors duration-500" style="border-radius:16px; padding:36px; display:flex; flex-direction:column; gap:24px;">
             <div>
               <p class="text-[#888] dark:text-neutral-400" style="font-family:'Inter',sans-serif; font-size:0.85rem; 
               text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Premium</p>
