@@ -282,22 +282,17 @@
             transform: scale(1.3);
         }
 
-        @keyframes pulseSlow {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+        @keyframes blobMove1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 60px) scale(1.2); }
         }
-        .animate-pulse-slow {
-            animation: pulseSlow 8s ease-in-out infinite;
+        @keyframes blobMove2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-60px, -80px) scale(1.15); }
         }
-
-        @keyframes floatGrid {
-            0% { transform: translateY(0) scale(1.05); }
-            50% { transform: translateY(-5%) scale(1.1); }
-            100% { transform: translateY(0) scale(1.05); }
-        }
-        .animate-float-grid {
-            animation: floatGrid 30s ease-in-out infinite;
-            transform-origin: top center;
+        @keyframes blobMove3 {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -50%) scale(1.3); }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -328,43 +323,15 @@
     <!-- SECTION 1: HERO FULL SCREEN -->
     <section class="relative min-h-screen flex flex-col justify-center bg-[#0b0b0a] overflow-hidden">
 
-        <!-- Background Glow Orb (2026 Trend) -->
-        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0057FF] rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
+        <!-- Animated Gradient Blobs (2026 Trend) -->
+        <div style="position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;">
+            <div style="width: 600px; height: 600px; position: absolute; top: -100px; left: -150px; background: radial-gradient(circle, rgba(0,87,255,0.15) 0%, transparent 70%); animation: blobMove1 12s ease-in-out infinite alternate; filter: blur(80px); border-radius: 50%;"></div>
+            <div style="width: 500px; height: 500px; position: absolute; bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(0,87,255,0.1) 0%, transparent 70%); animation: blobMove2 15s ease-in-out infinite alternate; filter: blur(100px); border-radius: 50%;"></div>
+            <div style="width: 400px; height: 400px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); animation: blobMove3 10s ease-in-out infinite alternate; filter: blur(60px); border-radius: 50%;"></div>
         </div>
 
-        <!-- Background Grid Mosaic (Animated) -->
-        <div class="absolute inset-0 z-0 opacity-40 mix-blend-luminosity animate-float-grid pointer-events-none">
-            <div class="grid grid-cols-3 md:grid-cols-4 grid-rows-3 h-[120%] w-full gap-1 opacity-60">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover hidden md:block">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover hidden md:block">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1481481600465-36ae1a5b81dd?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover">
-                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover hidden md:block">
-                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
-                    alt="Web" class="w-full h-full object-cover hidden md:block">
-            </div>
-            </div>
-        </div>
-        <!-- Black Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0b0b0a]/60 via-[#0b0b0a]/80 to-[#0b0b0a] z-0 pointer-events-none"></div>
+        <!-- Subtle Grid Overlay -->
+        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; z-index: 0; pointer-events:none;"></div>
 
 
         <!-- Navigation Absolute -->
