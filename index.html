@@ -601,93 +601,215 @@
 
 
     <!-- SECTION 5: PRECIOS CON CONVERSOR (NEW DESIGN) -->
-    <section id="precios" class="py-24 px-6 bg-white transition-colors duration-500">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-5xl md:text-7xl text-[#0b0b0a] uppercase mb-6 italic">Planes de Conversión</h2>
-                
-                <!-- Currency Switcher (Pill Style) -->
-                <div class="flex flex-col items-center justify-center mt-10">
-                    <div class="relative bg-neutral-100 p-1.5 rounded-full flex items-center w-[280px] h-14 overflow-hidden border border-neutral-200">
-                        <div id="currencySelectorPill" class="absolute left-1.5 w-[130px] h-[44px] bg-[#0057FF] rounded-full transition-all duration-500 ease-in-out"></div>
-                        <button id="setUSD" class="relative z-10 w-1/2 text-sm font-bold transition-colors duration-300 text-white tracking-wide">USD</button>
-                        <button id="setLocal" class="relative z-10 w-1/2 text-sm font-bold transition-colors duration-300 text-neutral-500 hover:text-neutral-700 tracking-wide">Moneda local</button>
-                    </div>
-                    <p class="mt-4 text-xs font-medium text-neutral-400">Tipo de cambio aproximado</p>
-                </div>
-            </div>
+    <section id="precios" style="padding: 80px 24px; background: white;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        
+        <!-- Title -->
+        <h2 style="font-family:'Anton',sans-serif; font-size:clamp(3rem,8vw,6rem); 
+        text-align:center; color:#0b0b0a; margin-bottom:8px; line-height:1;">
+          INVERSIÓN
+        </h2>
+        <p style="text-align:center; color:#888; font-family:'Inter',sans-serif; 
+        font-size:1.1rem; margin-bottom:40px;">
+          Precios claros, resultados reales.
+        </p>
 
-            <!-- Pricing Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-                
-                <!-- Card 1: Starter -->
-                <div class="pricing-card reveal-stagger bg-[#0b0b0a] text-white p-8 md:p-10 rounded-2xl flex flex-col items-start border border-neutral-800">
-                    <h3 class="font-display text-3xl uppercase mb-2">Starter</h3>
-                    <p class="text-sm font-medium text-neutral-400 mb-8">Ideal para emprendedores</p>
-                    <div class="mb-8 w-full flex items-baseline">
-                        <span class="price-value font-display text-5xl lg:text-6xl" data-usd="150">$150</span>
-                        <span class="currency-code text-sm font-bold text-neutral-500 ml-2">USD</span>
-                    </div>
-                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-300 mb-10 flex-grow w-full">
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Landing page 1 página</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Diseño responsive</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Formulario de contacto</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Entrega en 7 días</li>
-                        <li class="flex items-center gap-3 text-neutral-500 pb-3"><iconify-icon icon="solar:check-circle-linear" width="20"></iconify-icon> 1 revisión incluida</li>
-                    </ul>
-                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20consultar%20por%20el%20Plan%20Starter" target="_blank" class="w-full mt-4 px-6 py-3 rounded-full border border-white text-white text-center font-bold text-sm hover:bg-white hover:text-black transition-all">Consultar &rarr;</a>
-                </div>
-
-                <!-- Card 2: Business (Featured) -->
-                <div class="pricing-card reveal-stagger bg-[#0b0b0a] text-white p-8 md:p-10 rounded-2xl flex flex-col items-start border-2 border-[#0057FF] relative">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#0057FF] text-white px-4 py-1.5 rounded-full font-bold text-[11px] uppercase tracking-wider">Más elegido</div>
-                    <h3 class="font-display text-3xl uppercase mb-2">Business</h3>
-                    <p class="text-sm font-medium text-neutral-400 mb-8">Para negocios en crecimiento</p>
-                    <div class="mb-8 w-full flex items-baseline">
-                        <span class="price-value font-display text-5xl lg:text-6xl text-[#0057FF]" data-usd="350">$350</span>
-                        <span class="currency-code text-sm font-bold text-neutral-500 ml-2">USD</span>
-                    </div>
-                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-300 mb-10 flex-grow w-full">
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Web completa hasta 5 páginas</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> SEO básico incluido</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Integración WhatsApp</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Google Analytics</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> Entrega en 14 días</li>
-                        <li class="flex items-center gap-3 pb-3"><iconify-icon icon="solar:check-circle-bold" class="text-[#0057FF]" width="20"></iconify-icon> 3 revisiones incluidas</li>
-                    </ul>
-                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20el%20Plan%20Business" target="_blank" class="w-full mt-4 px-6 py-3 rounded-full bg-[#0057FF] text-white text-center font-bold text-sm hover:bg-blue-700 transition-all">Trabajemos juntos &rarr;</a>
-                </div>
-
-                <!-- Card 3: Premium -->
-                <div class="pricing-card reveal-stagger bg-[#0b0b0a] text-white p-8 md:p-10 rounded-2xl flex flex-col items-start border border-neutral-800">
-                    <h3 class="font-display text-3xl uppercase mb-2">Premium</h3>
-                    <p class="text-sm font-medium text-neutral-400 mb-8">Para empresas que quieren más</p>
-                    <div class="mb-8 w-full flex items-baseline">
-                        <span class="price-value font-display text-5xl lg:text-6xl" data-usd="650">$650</span>
-                        <span class="currency-code text-sm font-bold text-neutral-500 ml-2">USD</span>
-                    </div>
-                    <ul class="flex flex-col gap-4 text-sm font-medium text-neutral-300 mb-10 flex-grow w-full">
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Web completa sin límite</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> SEO avanzado</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Blog integrado</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Redes sociales integradas</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Entrega en 21 días</li>
-                        <li class="flex items-center gap-3 border-b border-neutral-800 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Revisiones ilimitadas</li>
-                        <li class="flex items-center gap-3 pb-3"><iconify-icon icon="solar:check-circle-linear" class="text-white" width="20"></iconify-icon> Soporte 1 mes post-entrega</li>
-                    </ul>
-                    <a href="https://wa.me/5491173640915?text=Hola%20Serpira%2C%20quiero%20consultar%20por%20el%20Plan%20Premium" target="_blank" class="w-full mt-4 px-6 py-3 rounded-full border border-white text-white text-center font-bold text-sm hover:bg-white hover:text-black transition-all">Consultar &rarr;</a>
-                </div>
-
-            </div>
-
-            <!-- Guarantee Text -->
-            <div class="text-center reveal">
-                <p class="text-sm text-neutral-500 italic max-w-2xl mx-auto">
-                    "Todos los planes incluyen garantía: si tu web no genera consultas en 30 días, la revisamos gratis hasta que lo haga."
-                </p>
-            </div>
+        <!-- Toggle -->
+        <div style="display:flex; justify-content:center; margin-bottom:48px;">
+          <div style="background:#f5f5f5; border-radius:999px; padding:4px; display:flex; gap:4px;">
+            <button id="btn-usd" onclick="setCurrency('USD')"
+              style="padding:10px 28px; border-radius:999px; border:none; 
+              background:#0057FF; color:white; font-weight:700; 
+              font-family:'Inter',sans-serif; cursor:pointer; transition:all 0.3s;">
+              USD
+            </button>
+            <button id="btn-local" onclick="setCurrency('local')"
+              style="padding:10px 28px; border-radius:999px; border:none; 
+              background:transparent; color:#888; font-weight:700; 
+              font-family:'Inter',sans-serif; cursor:pointer; transition:all 0.3s;">
+              Moneda local
+            </button>
+          </div>
         </div>
+
+        <!-- Cards -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
+        gap:24px; align-items:start;">
+          
+          <!-- STARTER -->
+          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          display:flex; flex-direction:column; gap:24px;">
+            <div>
+              <p style="color:#888; font-family:'Inter',sans-serif; font-size:0.85rem; 
+              text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Starter</p>
+              <h3 style="font-family:'Anton',sans-serif; font-size:2rem; 
+              color:white; margin:0 0 4px;">IDEAL PARA EMPRENDEDORES</h3>
+            </div>
+            <div>
+              <div id="price-starter" style="font-family:'Anton',sans-serif; 
+              font-size:3.5rem; color:white; line-height:1;">$150 USD</div>
+              <p id="price-note-starter" style="color:#555; font-family:'Inter',sans-serif; 
+              font-size:0.75rem; margin:4px 0 0; display:none;">
+                Tipo de cambio aproximado
+              </p>
+            </div>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; 
+            flex-direction:column; gap:12px; flex:1;">
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Landing page 1 página
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Diseño responsive
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Formulario de contacto
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Entrega en 7 días
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem;">
+                <span style="color:#555;">✓</span> 1 revisión incluida
+              </li>
+            </ul>
+            <a href="#" style="display:block; text-align:center; padding:14px; 
+            border:1px solid white; border-radius:999px; color:white; 
+            font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
+            transition:all 0.3s;"
+            onmouseover="this.style.background='white';this.style.color='#0b0b0a'"
+            onmouseout="this.style.background='transparent';this.style.color='white'">
+              Consultar →
+            </a>
+          </div>
+
+          <!-- BUSINESS -->
+          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          display:flex; flex-direction:column; gap:24px; 
+          border:2px solid #0057FF; position:relative; margin-top:-16px;">
+            <div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%);
+            background:#0057FF; color:white; font-family:'Inter',sans-serif; 
+            font-weight:700; font-size:0.75rem; padding:6px 20px; 
+            border-radius:999px; white-space:nowrap;">
+              MÁS ELEGIDO
+            </div>
+            <div>
+              <p style="color:#0057FF; font-family:'Inter',sans-serif; font-size:0.85rem; 
+              text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Business</p>
+              <h3 style="font-family:'Anton',sans-serif; font-size:2rem; 
+              color:white; margin:0 0 4px;">PARA NEGOCIOS EN CRECIMIENTO</h3>
+            </div>
+            <div>
+              <div id="price-business" style="font-family:'Anton',sans-serif; 
+              font-size:3.5rem; color:#0057FF; line-height:1;">$350 USD</div>
+              <p id="price-note-business" style="color:#555; font-family:'Inter',sans-serif; 
+              font-size:0.75rem; margin:4px 0 0; display:none;">
+                Tipo de cambio aproximado
+              </p>
+            </div>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; 
+            flex-direction:column; gap:12px; flex:1;">
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Web completa hasta 5 páginas
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> SEO básico incluido
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Integración WhatsApp
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Google Analytics
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Entrega en 14 días
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem;">
+                <span style="color:#0057FF;">✓</span> 3 revisiones incluidas
+              </li>
+            </ul>
+            <a href="#" style="display:block; text-align:center; padding:14px; 
+            background:#0057FF; border-radius:999px; color:white; 
+            font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
+            transition:all 0.3s;"
+            onmouseover="this.style.background='#003fbf'"
+            onmouseout="this.style.background='#0057FF'">
+              Trabajemos juntos →
+            </a>
+          </div>
+
+          <!-- PREMIUM -->
+          <div style="background:#0b0b0a; border-radius:16px; padding:36px; 
+          display:flex; flex-direction:column; gap:24px;">
+            <div>
+              <p style="color:#888; font-family:'Inter',sans-serif; font-size:0.85rem; 
+              text-transform:uppercase; letter-spacing:0.1em; margin:0 0 8px;">Premium</p>
+              <h3 style="font-family:'Anton',sans-serif; font-size:2rem; 
+              color:white; margin:0 0 4px;">PARA EMPRESAS QUE QUIEREN MÁS</h3>
+            </div>
+            <div>
+              <div id="price-premium" style="font-family:'Anton',sans-serif; 
+              font-size:3.5rem; color:white; line-height:1;">$650 USD</div>
+              <p id="price-note-premium" style="color:#555; font-family:'Inter',sans-serif; 
+              font-size:0.75rem; margin:4px 0 0; display:none;">
+                Tipo de cambio aproximado
+              </p>
+            </div>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; 
+            flex-direction:column; gap:12px; flex:1;">
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Web completa sin límite
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> SEO avanzado
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Blog integrado
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Redes sociales integradas
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Entrega en 21 días
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem; 
+              padding-bottom:12px; border-bottom:1px solid #222;">
+                <span style="color:#0057FF;">✓</span> Revisiones ilimitadas
+              </li>
+              <li style="font-family:'Inter',sans-serif; font-size:0.95rem;">
+                <span style="color:#0057FF;">✓</span> Soporte 1 mes post-entrega
+              </li>
+            </ul>
+            <a href="#" style="display:block; text-align:center; padding:14px; 
+            border:1px solid white; border-radius:999px; color:white; 
+            font-family:'Inter',sans-serif; font-weight:700; text-decoration:none;
+            transition:all 0.3s;"
+            onmouseover="this.style.background='white';this.style.color='#0b0b0a'"
+            onmouseout="this.style.background='transparent';this.style.color='white'">
+              Consultar →
+            </a>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <p style="text-align:center; color:#888; font-family:'Inter',sans-serif; 
+        font-size:0.9rem; font-style:italic; margin-top:40px; max-width:600px; 
+        margin-left:auto; margin-right:auto;">
+          "Todos los planes incluyen garantía: si tu web no genera consultas en 30 días, la revisamos gratis hasta que lo haga."
+        </p>
+      </div>
     </section>
 
     <!-- SECTION 6: TESTIMONIOS — slider funcional (MEJORA 2) + scroll reveal (MEJORA 3) -->
@@ -1086,13 +1208,6 @@
 
             let userCountry = 'US';
             let userCurrencyData = currencyMap['US'];
-            let currentMode = 'USD';
-
-            const setUSD = document.getElementById('setUSD');
-            const setLocal = document.getElementById('setLocal');
-            const currencyPill = document.getElementById('currencySelectorPill');
-            const priceValues = document.querySelectorAll('.price-value');
-            const currencyCodes = document.querySelectorAll('.currency-code');
 
             async function initCurrency() {
                 try {
@@ -1104,7 +1219,7 @@
                         userCurrencyData = currencyMap[userCountry];
                         // Auto-select local if not US
                         if (userCountry !== 'US') {
-                            updatePrices('LOCAL');
+                            window.setCurrency('local');
                         }
                     }
                 } catch (err) {
@@ -1112,49 +1227,57 @@
                 }
             }
 
-            function triggerPriceFlash() {
-                priceValues.forEach(el => {
-                    el.classList.remove('price-flash');
-                    void el.offsetWidth; // trigger reflow
-                    el.classList.add('price-flash');
-                });
-            }
-
-            function updatePrices(mode) {
-                currentMode = mode;
-                const isLocal = mode === 'LOCAL';
+            window.setCurrency = function(mode) {
+                const isLocal = mode === 'local';
                 const currencyCode = isLocal ? userCurrencyData.code : 'USD';
                 const rate = isLocal ? userCurrencyData.rate : 1;
                 
-                // UI Feedback
-                currencyPill.style.left = isLocal ? 'calc(50% + 1.5px)' : '1.5px';
+                // Toggle Buttons Visual Update
+                const btnUsd = document.getElementById('btn-usd');
+                const btnLocal = document.getElementById('btn-local');
                 
-                setUSD.classList.toggle('text-white', !isLocal);
-                setUSD.classList.toggle('text-neutral-500', isLocal);
-                
-                setLocal.classList.toggle('text-white', isLocal);
-                setLocal.classList.toggle('text-neutral-500', !isLocal);
-                
-                triggerPriceFlash();
+                if (isLocal) {
+                    btnLocal.style.background = '#0057FF';
+                    btnLocal.style.color = 'white';
+                    btnUsd.style.background = 'transparent';
+                    btnUsd.style.color = '#888';
+                } else {
+                    btnUsd.style.background = '#0057FF';
+                    btnUsd.style.color = 'white';
+                    btnLocal.style.background = 'transparent';
+                    btnLocal.style.color = '#888';
+                }
 
-                priceValues.forEach(el => {
-                    const usdPrice = parseFloat(el.dataset.usd);
-                    const finalPrice = Math.round(usdPrice * rate);
+                // Prices Update
+                const prices = {
+                    starter: 150,
+                    business: 350,
+                    premium: 650
+                };
+                
+                ['starter', 'business', 'premium'].forEach(plan => {
+                    const el = document.getElementById(`price-${plan}`);
+                    const note = document.getElementById(`price-note-${plan}`);
+                    if (el) {
+                        const usdPrice = prices[plan];
+                        const finalPrice = Math.round(usdPrice * rate);
+                        
+                        if (isLocal && currencyCode !== 'USD') {
+                            el.textContent = `$${finalPrice.toLocaleString('es-AR')} ${currencyCode}`;
+                            if(note) note.style.display = 'block';
+                        } else {
+                            el.textContent = `$${usdPrice.toLocaleString('en-US')} USD`;
+                            if(note) note.style.display = 'none';
+                        }
+                    }
                     
-                    if (isLocal && currencyCode !== 'USD') {
-                        el.textContent = `$${finalPrice.toLocaleString('es-AR')}`;
-                    } else {
-                        el.textContent = `$${usdPrice.toLocaleString('en-US')}`;
+                    // Simple flash animation to indicate change
+                    if (el) {
+                        el.style.opacity = '0.5';
+                        setTimeout(() => { el.style.opacity = '1'; el.style.transition = 'opacity 0.3s ease'; }, 50);
                     }
                 });
-
-                currencyCodes.forEach(el => {
-                    el.textContent = currencyCode;
-                });
-            }
-
-            setUSD.addEventListener('click', () => updatePrices('USD'));
-            setLocal.addEventListener('click', () => updatePrices('LOCAL'));
+            };
 
             initCurrency();
 
