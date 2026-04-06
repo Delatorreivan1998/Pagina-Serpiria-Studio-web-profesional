@@ -1149,7 +1149,7 @@
 
 
     <!-- SECTION 7: MARQUEE INFERIOR — con fade edges (MEJORA 4) -->
-    <section class="py-16 bg-[#0057FF] transition-colors duration-500 overflow-hidden marquee-wrapper"
+    <section class="pt-40 pb-20 bg-[#0057FF] transition-colors duration-500 overflow-hidden marquee-wrapper"
         style="--marquee-bg: #0057FF;">
         <div
             class="marquee-container flex items-center font-display text-6xl md:text-8xl tracking-wide text-white uppercase">
@@ -1380,7 +1380,7 @@
                             footerObserver.disconnect();
                         }
                     });
-                }, { threshold: 0.2 });
+                }, { threshold: 0.9 });
                 
                 footerObserver.observe(footerText);
             }
