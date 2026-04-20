@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serpira — Sistemas de Conversión</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script>
@@ -415,7 +416,10 @@
 
         <!-- Navigation Absolute -->
         <nav class="absolute top-0 w-full z-40 p-6 flex justify-between items-center">
-            <a href="#" class="font-body font-bold tracking-tight text-xl text-white">Serpira</a>
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Serpira Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:scale-105 transition-transform duration-300">
+                <span class="font-body font-bold tracking-tight text-xl text-white">Serpira</span>
+            </a>
             <div class="flex items-center gap-4 z-50">
                 <button id="darkModeToggle" class="text-white hover:text-neutral-300 transition-colors flex items-center justify-center" aria-label="Cambiar tema">
                     <iconify-icon id="darkIcon" icon="solar:moon-linear" width="28"></iconify-icon>
@@ -1191,8 +1195,11 @@
             class="max-w-[1600px] w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-blue-400/30">
 
             <!-- Left Logo -->
-            <div class="font-body font-bold text-lg text-white">
-                Serpira - Web Studio
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Serpira" class="w-8 h-8 object-contain">
+                <div class="font-body font-bold text-lg text-white">
+                    Serpira - Web Studio
+                </div>
             </div>
 
 
